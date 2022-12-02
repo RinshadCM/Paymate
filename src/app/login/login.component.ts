@@ -19,36 +19,15 @@ export class LoginComponent {
       1003:{acno:1003,username:"Megha",password:123,balance:0,}
     }
 
-    // login(){
-    //   // alert('Login Clicked')
-    //   var acno=this.acno
-    //   var pass=this.pass
-    //   var userDetails=this.userDetails
-
-    //   if(acno in userDetails){
-    //     if(pass==userDetails[acno]["password"]){
-    //       alert('Login SUccess')
-    //     }
-    //     else{
-    //       alert('Incorrect Password')
-    //     }
-    //   }
-    //   else{
-    //     alert('Incorrect Username')
-    //   }
-    // }
-    login(a:any,b:any){
+    login(){
       // alert('Login Clicked')
-      this.acno=a.value
-      this.psw=b.value
-
       var acno=this.acno
       var psw=this.psw
       var userDetails=this.userDetails
 
       if(acno in userDetails){
         if(psw==userDetails[acno]["password"]){
-          alert('Login Success')
+          alert('Login SUccess')
         }
         else{
           alert('Incorrect Password')
@@ -58,6 +37,27 @@ export class LoginComponent {
         alert('Incorrect Username')
       }
     }
+    // login(a:any,b:any){
+    //   // alert('Login Clicked')
+    //   this.acno=a.value
+    //   this.psw=b.value
+
+    //   var acno=this.acno
+    //   var psw=this.psw
+    //   var userDetails=this.userDetails
+
+    //   if(acno in userDetails){
+    //     if(psw==userDetails[acno]["password"]){
+    //       alert('Login Success')
+    //     }
+    //     else{
+    //       alert('Incorrect Password')
+    //     }
+    //   }
+    //   else{
+    //     alert('Incorrect Username')
+    //   }
+    // }
 
 
     // acnoChange(event:any){
