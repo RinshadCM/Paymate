@@ -12,3 +12,6 @@ Html-View
     1.2 View to Component   
         1.2.1 Event Binding  (eventname)="method name()"
         1.2.2 Event binding using $event (eventname)='methodname($event)'
+        1.2.3 Event binding using template rendering variable #variable
+
+        
