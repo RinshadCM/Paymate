@@ -14,4 +14,6 @@ Html-View
         1.2.2 Event binding using $event (eventname)='methodname($event)'
         1.2.3 Event binding using template rendering variable #variable
 
-        
+2- Two Way Binding
+    2.1 ng model  [(ngmodel)]=="value
+                    FormsModule
