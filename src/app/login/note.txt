@@ -17,3 +17,10 @@ Html-View
 2- Two Way Binding
     2.1 ng model  [(ngmodel)]=="value
                     FormsModule
+
+Redirection in angular
+-----------------------
+
+navigateByUrl  method used to Redirection
+Router  - class
+AppRoutingModule - module
