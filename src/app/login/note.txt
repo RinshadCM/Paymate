@@ -24,3 +24,18 @@ Redirection in angular
 navigateByUrl  method used to Redirection
 Router  - class
 AppRoutingModule - module
+
+Dependancy injection
+---------------------
+- To use a method of class in another class
+- In Constructor
+-STEPS:-
+    1) Access specifier -public/private
+    2) Variable
+    3) classname
+                private variable:Classname
+
+
+Angular Services
+-----------------
+ng g s servicename

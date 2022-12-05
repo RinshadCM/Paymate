@@ -1,4 +1,5 @@
 import { ANALYZE_FOR_ENTRY_COMPONENTS, Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,10 @@ export class LoginComponent {
       1003:{acno:1003,username:"Megha",password:123,balance:0,}
     }
 
+    constructor(private router:Router){
+      
+    }
+
     login(){
       // alert('Login Clicked')
       var acno=this.acno
@@ -27,7 +32,8 @@ export class LoginComponent {
 
       if(acno in userDetails){
         if(psw==userDetails[acno]["password"]){
-          alert('Login SUccess')
+          alert('Login Success')
+          this.router.navigateByUrl('dashboard')
         }
         else{
           alert('Incorrect Password')

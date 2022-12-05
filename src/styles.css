@@ -3,10 +3,12 @@
 body {
     margin: 0;
     padding: 0;
-    background: url(../src/assets/bg.jpg);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../src/assets/bg-new.jpg);
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
     font-family: sans-serif;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     /* margin-top: 22%; */
+    
+    
 }
