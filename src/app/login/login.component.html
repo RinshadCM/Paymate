@@ -9,10 +9,10 @@
     </div>
     <div class="loginbox"> <img src="../../assets/pexels-pixabay-50987.jpg" class="avatar">
         <h1>Login Here</h1>
-        <form method="post" action="#">
+        <form (ngSubmit)="login()" method="post" action="#">
             <p>Account Number</p> <input [(ngModel)]="acno"  id="acno" type="text" name="acno" [placeholder]="data" >
             <p>Password</p> <input [(ngModel)]="psw"  id="psw" type="password" name="psw" placeholder="Enter Password">
-            <button (click)="login()" type="submit" name="" value="Login">Login</button>
+            <button  type="submit" name="" value="Login">Login</button>
             <button routerLink="register" type="" name="" value="Register">Register</button>
 
             <div class="button">
