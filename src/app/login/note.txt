@@ -39,3 +39,9 @@ Dependancy injection
 Angular Services
 -----------------
 ng g s servicename
+
+Angular Directives
+------------------
+1- Structural directives: To handle structured datas in view of a component
+
+    - ngFor : can directly apply in html to access elements from array

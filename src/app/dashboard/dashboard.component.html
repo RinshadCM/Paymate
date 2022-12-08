@@ -1,3 +1,16 @@
+<div class="wrapper">
+    <h1>Welcome {{user}}</h1>
+</div>
+
+<a routerLink="/transaction">
+	<svg>
+	  <rect></rect>
+	</svg>
+   Previous Transactions
+ </a>
+<!-- <div class="container">
+    <a routerLink="/transaction"><span>Previous transactions</span></a>
+</div> -->
 <div class="container-fluid">
 	<div class="row d-flex justify-content-center">
 		<div class="col-sm-12">
@@ -21,10 +34,10 @@
                         	<div class="row d-flex">
                         		<div class="col-sm-4">
                         			<p class="text-warning mb-0">Amount</p>
-                        			<input [(ngModel)]="amnt" type="text" name="exp" placeholder="Enter the Amount" id="exp" size="17">
+                        			<input [(ngModel)]="amnt" type="text" name="amnt" placeholder="Enter the Amount" id="exp" size="17">
                         		</div>
                         		<div class="col-sm-5 pt-0">
-                        			<button type="submit" class="btn btn-primary"><i class="fas fa-money-bill-transfer px-3 py-2"></i></button>
+                        			<button type="submit" class="btn btn-primary submit-btn"><i class="fas fa-money-bill-transfer px-3 py-2"></i></button>
                         		</div>
                         	</div>
                         </div>		
@@ -42,12 +55,12 @@
 					<form (ngSubmit)="withdraw()" class="card-details ">
 						<div class="form-group mb-0">
 								<p class="text-warning mb-2">Account Number</p> 
-                          		<input [(ngModel)]="acno" type="text" name="card-num" placeholder="1234 5678 9012 3457" size="17" id="cno" minlength="19" maxlength="19">
+                          		<input [(ngModel)]="acno1" type="text" name="acno1" placeholder="1234 5678 9012 3457" size="17" id="acno" minlength="19" maxlength="19">
 								<!-- <img src="../../assets/cash-withdrawal.png" width="64px" height="60px" /> -->
                         </div>
 
                         <div class="form-group">
-                            <p class="text-warning mb-0">Password</p> <input [(ngModel)]="psw" type="password" name="name" placeholder="Password" size="17">
+                            <p class="text-warning mb-0">Password</p> <input [(ngModel)]="psw1" type="password" name="psw1" placeholder="Password" size="17">
                         </div>
 
 						<div class="i2">
@@ -59,10 +72,10 @@
                         	<div class="row d-flex">
                         		<div class="col-sm-4">
                         			<p class="text-warning mb-0">Amount</p>
-                        			<input [(ngModel)]="amnt" type="text" name="exp" placeholder="Enter the Amount" size="17" id="exp">
+                        			<input [(ngModel)]="amnt1" type="text" name="amnt1" placeholder="Enter the Amount" size="17" id="exp">
                         		</div>
                         		<div class="col-sm-5 pt-0">
-                        			<button type="submit" class="btn btn-primary"><i class="fas fa-money-bill-transfer px-3 py-2"></i></button>
+                        			<button type="submit" class="btn btn-primary submit-btn"><i class="fas fa-arrow-down-to-square px-3 py-2"></i></button>
                         		</div>
                         	</div>
                         </div>		

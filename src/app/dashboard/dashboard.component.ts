@@ -12,8 +12,15 @@ export class DashboardComponent {
   psw=''
   amnt=''
 
-  constructor(private ds:DataService){
+  acno1=''
+  psw1=''
+  amnt1=''
 
+  user=''
+
+  constructor(private ds:DataService){
+    // Access Username
+    this.user=this.ds.currentuser
   }
 
   deposit(){
@@ -32,6 +39,14 @@ export class DashboardComponent {
 
   }
   withdraw(){
+    var acno1=this.acno1
+    var psw1=this.psw1
+    var amnt1=this.amnt1
+
+    const result=this.ds.withdraw(acno1,psw1,amnt1)
+    if(result){
+      alert(`${amnt1} is debited and the balance is ${result}`)
+    }
 
   }
   
