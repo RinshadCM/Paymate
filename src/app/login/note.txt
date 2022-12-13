@@ -46,9 +46,33 @@ Angular Directives
 
     - ngFor : can directly apply in html to access elements from array
 
+    -ngIf :- Condition Check in HTML page
+
 Form validation in Angular
 ----------------------------
     1. Template driven Form
     2. Model Driven Form
+        -Reactive Form
+        ---------------
+        ReactiveFormsModule- Module used to create model forms
+
+        FormBuilder - Class of ReactiveFormsModule
+
+                    - Group,Array,Control
+    
+        Validate Model Form
+        --------------------
+
+        Validator - A class in angular, it includes methods for apply validation
+
+        -Access errors in Validator rule
+                this.registerForm.get('uname')?.errors
+
+                -Valid - Empty Response
+
+                -Invalid - Content
+
+        if(this.registerForm.get('uname')?.errors){}            //ngIf
+
     
 

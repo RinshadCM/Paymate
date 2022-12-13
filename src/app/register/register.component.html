@@ -2,20 +2,32 @@
     <div class="card">
         <div class="row">
             <div class="col-md-6">
-                <div class="form">
-                    <h2>Registration</h2>
-                    <div class="inputbox mt-3"> <span>Account Number</span> <input [(ngModel)]="acno" id="acid" type="text"
-                            placeholder="Account Number" name="acno" class="form-control"> </div>
-                    <div class="inputbox mt-3"> <span>Username</span> <input [(ngModel)]="uname" id="uid" type="text" placeholder="Name" name="uname"
-                            class="form-control"> </div>
-                    <div class="inputbox mt-3"> <span>Password</span> <input [(ngModel)]="psw" id="pid" type="password" placeholder="Password"
-                            name="psw" class="form-control"> </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="text-right"> <button type="submit" 
-                                class="btn btn-success register btn-block" (click)="register()">Register</button> </div> <a href="./index.html"
-                            class="login">Login</a>
+                <form action="" (ngSubmit)="register()" [formGroup]="registerForm">
+                    <div class="form">
+                        <h2>Registration</h2>
+                        <div class="inputbox mt-3"> <span>Account Number</span> <input id="acid" type="text"
+                                placeholder="Account Number" formControlName="acno" name="acno" class="form-control">
+                        </div>
+                        <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched">
+                            <p class="text-danger">Invalid Account Number</p>
+                        </div>
+                        <div class="inputbox mt-3"> <span>Username</span> <input id="uid" type="text" placeholder="Name"
+                                formControlName="uname" name="uname" class="form-control"> </div>
+                        <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched">
+                            <p class="text-danger">Invalid Username</p>
+                        </div>
+                        <div class="inputbox mt-3"> <span>Password</span> <input id="pid" type="password"
+                                placeholder="Password" formControlName="psw" name="psw" class="form-control"> </div>
+                        <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched">
+                            <p class="text-danger">Invalid Password</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="text-right"> <button type="submit" class="btn btn-success register btn-block"
+                                    (click)="register()">Register</button> </div> <a href="./index.html"
+                                class="login">Login</a>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="col-md-6">
                 <div class="text-center mt-5"> <img src="../../assets/register-img.jpg" width="400"> </div>
@@ -23,4 +35,3 @@
         </div>
     </div>
 </div>
-

@@ -9,9 +9,15 @@
     </div>
     <div class="loginbox"> <img src="../../assets/pexels-pixabay-50987.jpg" class="avatar">
         <h1>Login Here</h1>
-        <form (ngSubmit)="login()" method="post" action="#">
-            <p>Account Number</p> <input [(ngModel)]="acno"  id="acno" type="text" name="acno" [placeholder]="data" >
-            <p>Password</p> <input [(ngModel)]="psw"  id="psw" type="password" name="psw" placeholder="Enter Password">
+        <form (ngSubmit)="login()" [formGroup]="loginForm" method="post" action="#">
+            <p>Account Number</p> <input formControlName="acno"  id="acno" type="text" name="acno" [placeholder]="data" >
+            <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched">
+                <p class="text-danger">Invalid Account Number</p>
+            </div>
+            <p>Password</p> <input formControlName="psw"  id="psw" type="password" name="psw" placeholder="Enter Password">
+            <div *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched">
+                <p class="text-danger">Invalid Password</p>
+            </div>
             <button  type="submit" name="" value="Login">Login</button>
             <button routerLink="register" type="" name="" value="Register">Register</button>
 
