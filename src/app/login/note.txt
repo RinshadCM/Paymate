@@ -74,5 +74,9 @@ Form validation in Angular
 
         if(this.registerForm.get('uname')?.errors){}            //ngIf
 
-    
+    Local Storage in Angular
+    ------------------------
+    -store  localstorage.setItem()
+    -access localStorage.getItem()
+    -delete localStorage.removeItem()
 

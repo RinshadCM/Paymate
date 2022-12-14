@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -19,20 +20,20 @@ export class DashboardComponent {
 
   user = ''
 
-  constructor(private ds: DataService, private fb: FormBuilder) {
+  constructor(private ds: DataService, private fb: FormBuilder,private router:Router) {
     // Access Username
     this.user = this.ds.currentuser
   }
 
   depositForm = this.fb.group({
-    acno: ['', [Validators.required, Validators.pattern('[0-9]+')]],
-    psw: ['', [Validators.required, Validators.pattern('[0-9a-zA-Z]+')]],
+    acno: ['',[Validators.required, Validators.pattern('[0-9]+')]],
+    psw: ['', [Validators.required, Validators.pattern('[0-9]+')]],
     amnt: ['', [Validators.required, Validators.pattern('[0-9]+')]]
   })
 
   withdrawForm = this.fb.group({
     acno1: ['', [Validators.required, Validators.pattern('[0-9]+')]],
-    psw1: ['', [Validators.required, Validators.pattern('[0-9a-zA-Z]+')]],
+    psw1: ['', [Validators.required, Validators.pattern('[0-9]+')]],
     amnt1: ['', [Validators.required, Validators.pattern('[0-9]+')]]
   })
 
@@ -76,6 +77,11 @@ export class DashboardComponent {
 
    
 
+  }
+  logout(){
+    localStorage.removeItem('currentuser')
+    localStorage.removeItem('currentacno')
+    this.router.navigateByUrl('')
   }
 
 }

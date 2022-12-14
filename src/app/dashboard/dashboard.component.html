@@ -1,13 +1,13 @@
 <div class="wrapper">
-    <h1>Welcome {{user}}</h1>
+	<h1>Welcome {{user}}</h1>
 </div>
 
 <a routerLink="/transaction">
 	<svg>
-	  <rect></rect>
+		<rect></rect>
 	</svg>
-   Previous Transactions
- </a>
+	Previous Transactions
+</a>
 <!-- <div class="container">
     <a routerLink="/transaction"><span>Previous transactions</span></a>
 </div> -->
@@ -16,32 +16,46 @@
 		<div class="col-sm-12">
 			<div class="card mx-auto">
 				<p class="heading">Deposit</p>
-					<form (ngSubmit)="deposit()" [formGroup]="depositForm"  class="card-details ">
-						<div class="form-group mb-0">
-								<p class="text-warning mb-2">Account Number</p> 
-                          		<input formControlName="acno" type="text" name="acno" placeholder="1234 5678 9012 3457" size="17" id="cno" minlength="19" maxlength="19">
-								<!-- <img src="../../assets/deposit.png" width="104px" height="100px" /> -->
-                        </div>
-
-                        <div class="form-group">
-                            <p class="text-warning mb-0">Password</p> <input formControlName="psw" type="password" name="psw" placeholder="Password" size="17">
-                        </div>
-						<div class="i">
-							<img src="../../assets/deposit.png" width="104px" height="100px" />
-
+				<form (ngSubmit)="deposit()" [formGroup]="depositForm" class="card-details ">
+					<div class="form-group mb-0">
+						<p class="text-warning mb-2">Account Number</p>
+						<input formControlName="acno" type="number" name="acno" placeholder="1234 5678 9012 3457"
+							size="17" id="acn" minlength="19" maxlength="19">
+						<!-- <img src="../../assets/deposit.png" width="104px" height="100px" /> -->
+						<div *ngIf="this.depositForm.get('acno')?.errors && this.depositForm.get('acno')?.touched">
+							<p class="text-danger">Invalid Account Number</p>
 						</div>
-                        <div class="form-group pt-2">
-                        	<div class="row d-flex">
-                        		<div class="col-sm-4">
-                        			<p class="text-warning mb-0">Amount</p>
-                        			<input formControlName="amnt" type="text" name="amnt" placeholder="Enter the Amount" id="exp" size="17">
-                        		</div>
-                        		<div class="col-sm-5 pt-0">
-                        			<button type="submit" class="btn btn-primary submit-btn"><i class="fas fa-money-bill-transfer px-3 py-2"></i></button>
-                        		</div>
-                        	</div>
-                        </div>		
-					</form>
+			
+					</div>
+
+					<div class="form-group">
+						<p class="text-warning mb-0">Password</p> <input formControlName="psw" type="password"
+							name="psw" placeholder="Password" size="17">
+						<div *ngIf="this.depositForm.get('psw')?.errors && this.depositForm.get('psw')?.touched">
+							<p class="text-danger">Invalid Password</p>
+						</div>
+					</div>
+					<div class="i">
+						<img src="../../assets/deposit.png" width="104px" height="100px" />
+
+					</div>
+					<div class="form-group pt-2">
+						<div class="row d-flex">
+							<div class="col-sm-4">
+								<p class="text-warning mb-0">Amount</p>
+								<input formControlName="amnt" type="text" name="amnt" placeholder="Enter the Amount"
+									id="exp" size="17">
+								<div *ngIf="depositForm.get('amnt')?.errors && this.depositForm.get('amnt')?.touched">
+									<p class="text-danger">Invalid Amount</p>
+								</div>
+							</div>
+							<div class="col-sm-5 pt-0">
+								<button type="submit" class="btn btn-primary submit-btn"><i
+										class="fas fa-money-bill-transfer px-3 py-2"></i></button>
+							</div>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -52,34 +66,56 @@
 		<div class="col-sm-12">
 			<div class="card2 mx-auto">
 				<p class="heading">Withdraw</p>
-					<form (ngSubmit)="withdraw()" [formGroup]="withdrawForm" class="card-details ">
-						<div class="form-group mb-0">
-								<p class="text-warning mb-2">Account Number</p> 
-                          		<input formControlName="acno1" type="text" name="acno1" placeholder="1234 5678 9012 3457" size="17" id="acno" minlength="19" maxlength="19">
-								<!-- <img src="../../assets/cash-withdrawal.png" width="64px" height="60px" /> -->
-                        </div>
+				<form (ngSubmit)="withdraw()" [formGroup]="withdrawForm" class="card-details ">
+					<div class="form-group mb-0">
+						<p class="text-warning mb-2">Account Number</p>
+						
+						<input formControlName="acno1" type="number" name="acno1" placeholder="1234 5678 9012 3457"
+							size="17" id="acno" minlength="19" maxlength="19">
 
-                        <div class="form-group">
-                            <p class="text-warning mb-0">Password</p> <input formControlName="psw1" type="password" name="psw1" placeholder="Password" size="17">
-                        </div>
+							<div *ngIf="this.withdrawForm.get('acno1')?.errors && this.withdrawForm.get('acno1')?.touched">
+								<p class="text-danger">Invalid Account No</p>
+							</div>
+	
+						<!-- <img src="../../assets/cash-withdrawal.png" width="64px" height="60px" /> -->
+					</div>
 
-						<div class="i2">
-							<img src="../../assets/cash-withdrawal.png" width="104px" height="100px" />
+					<div class="form-group">
+						<p class="text-warning mb-0">Password</p> <input formControlName="psw1" type="password"
+							name="psw1" placeholder="Password" size="17">
+							<div *ngIf="this.withdrawForm.get('psw')?.errors && this.withdrawForm.get('psw')?.touched">
+								<p class="text-danger">Invalid Password</p>
+							</div>
+	
+					</div>
 
+					<div class="i2">
+						<img src="../../assets/cash-withdrawal.png" width="104px" height="100px" />
+
+					</div>
+
+					<div class="form-group pt-2">
+						<div class="row d-flex">
+							<div class="col-sm-4">
+								<p class="text-warning mb-0">Amount</p>
+								<input formControlName="amnt1" type="text" name="amnt1" placeholder="Enter the Amount"
+									size="17" id="exp">
+									<div *ngIf="this.withdrawForm.get('amnt1')?.errors && this.withdrawForm.get('amnt1')?.touched">
+										<p class="text-danger">Invalid Amount</p>
+									</div>
+			
+							</div>
+							<div class="col-sm-5 pt-0">
+								<button type="submit" class="btn btn-primary submit-btn"><i
+										class="fas fa-money-bill-transfer px-3 py-2"></i></button>
+							</div>
 						</div>
-
-                        <div class="form-group pt-2">
-                        	<div class="row d-flex">
-                        		<div class="col-sm-4">
-                        			<p class="text-warning mb-0">Amount</p>
-                        			<input formControlName="amnt1" type="text" name="amnt1" placeholder="Enter the Amount" size="17" id="exp">
-                        		</div>
-                        		<div class="col-sm-5 pt-0">
-                        			<button type="submit" class="btn btn-primary submit-btn"><i class="fas fa-money-bill-transfer px-3 py-2"></i></button>
-                        		</div>
-                        	</div>
-                        </div>		
-					</form>
+					</div>
+				</form>
+				<div>
+					<button (click)="logout()">LOGOUT</button>
+				</div>
+		
 			</div>
 		</div>
 	</div>
