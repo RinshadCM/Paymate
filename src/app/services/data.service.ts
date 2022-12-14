@@ -21,7 +21,7 @@ export class DataService {
       localStorage.setItem('currentuser',JSON.stringify(this.currentuser))
     }
     if(this.currentacno){
-      localStorage.setItem('currentano',JSON.stringify(this.currentacno))
+      localStorage.setItem('currentacno',JSON.stringify(this.currentacno))
     }
   }
 
@@ -38,7 +38,7 @@ export class DataService {
   }
 
   // userDetails:any={
-  //   1000:{acno:1000,username:"Anu",password:123,balance:0,transaction:[]},
+  //   1000:{acno:1000,username:"Saneen",password:123,balance:0,transaction:[]},
   //   1001:{acno:1001,username:"Amal",password:123,balance:0,transaction:[]},
   //   1002:{acno:1002,username:"Arun",password:123,balance:0,transaction:[]},
   //   1003:{acno:1003,username:"Megha",password:123,balance:0,transaction:[]}

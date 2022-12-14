@@ -48,6 +48,11 @@ Angular Directives
 
     -ngIf :- Condition Check in HTML page
 
+2- Component Directives
+
+3- Attribute Directives
+    - ngClass
+
 Form validation in Angular
 ----------------------------
     1. Template driven Form
@@ -79,4 +84,18 @@ Form validation in Angular
     -store  localstorage.setItem()
     -access localStorage.getItem()
     -delete localStorage.removeItem()
+
+    Parent Child Components communication in Angular
+    -------------------------------------------------
+
+
+
+
+
+    Date in Angular
+    ---------------
+    Date   -class
+
+    -Create an object of class Date to access Date and Time
+
 

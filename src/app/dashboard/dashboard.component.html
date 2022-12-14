@@ -1,6 +1,9 @@
 <div class="wrapper">
 	<h1>Welcome {{user}}</h1>
 </div>
+<div class="text-white text-center">
+	<h1>{{dateandtime | date:'short'}}</h1>
+</div>
 
 <a routerLink="/transaction">
 	<svg>
@@ -11,7 +14,9 @@
 <!-- <div class="container">
     <a routerLink="/transaction"><span>Previous transactions</span></a>
 </div> -->
-<div class="container-fluid">
+<app-deleteconfirm [item]="acno"></app-deleteconfirm>
+
+<div class="container-fluid" [ngClass]="acno?'style':''">
 	<div class="row d-flex justify-content-center">
 		<div class="col-sm-12">
 			<div class="card mx-auto">
@@ -61,7 +66,7 @@
 	</div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" [ngClass]="acno?'style':''">
 	<div class="row d-flex justify-content-center">
 		<div class="col-sm-12">
 			<div class="card2 mx-auto">
@@ -114,6 +119,9 @@
 				</form>
 				<div>
 					<button (click)="logout()">LOGOUT</button>
+				</div>
+				<div>
+					<button (click)="deleteconfirm()">DELETE</button>
 				</div>
 		
 			</div>

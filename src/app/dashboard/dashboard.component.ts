@@ -10,6 +10,8 @@ import { DataService } from '../services/data.service';
 })
 export class DashboardComponent {
 
+  dateandtime:any
+
   // acno=''
   // psw=''
   // amnt=''
@@ -18,15 +20,19 @@ export class DashboardComponent {
   // psw1=''
   // amnt1=''
 
+
+  acno:any
+
   user = ''
 
-  constructor(private ds: DataService, private fb: FormBuilder,private router:Router) {
+  constructor(private ds: DataService, private fb: FormBuilder, private router: Router) {
+    this.dateandtime=new Date()
     // Access Username
     this.user = this.ds.currentuser
   }
 
   depositForm = this.fb.group({
-    acno: ['',[Validators.required, Validators.pattern('[0-9]+')]],
+    acno: ['', [Validators.required, Validators.pattern('[0-9]+')]],
     psw: ['', [Validators.required, Validators.pattern('[0-9]+')]],
     amnt: ['', [Validators.required, Validators.pattern('[0-9]+')]]
   })
@@ -36,6 +42,13 @@ export class DashboardComponent {
     psw1: ['', [Validators.required, Validators.pattern('[0-9]+')]],
     amnt1: ['', [Validators.required, Validators.pattern('[0-9]+')]]
   })
+
+  ngOnInit(): void {
+    if (!localStorage.getItem('currentacno')) {
+      alert('Please Login First')
+      this.router.navigateByUrl('')
+    }
+  }
 
   deposit() {
     var acno = this.depositForm.value.acno
@@ -53,7 +66,7 @@ export class DashboardComponent {
       }
 
     }
-    else{
+    else {
       alert('Invalid Deposit')
     }
 
@@ -64,24 +77,29 @@ export class DashboardComponent {
     var psw1 = this.withdrawForm.value.psw1
     var amnt1 = this.withdrawForm.value.amnt1
 
-    if(this.withdrawForm.valid){
+    if (this.withdrawForm.valid) {
       const result = this.ds.withdraw(acno1, psw1, amnt1)
       if (result) {
         alert(`${amnt1} is debited and the balance is ${result}`)
       }
 
     }
-    else{
+    else {
       alert('Invalid Withdraw')
     }
 
-   
+
 
   }
-  logout(){
+  logout() {
     localStorage.removeItem('currentuser')
     localStorage.removeItem('currentacno')
     this.router.navigateByUrl('')
+  }
+
+  deleteconfirm(){
+    this.acno=JSON.parse(localStorage.getItem('currentacno')||"")
+
   }
 
 }
