@@ -79,17 +79,23 @@ Form validation in Angular
 
         if(this.registerForm.get('uname')?.errors){}            //ngIf
 
-    Local Storage in Angular
-    ------------------------
+        Local Storage in Angular
+        ------------------------
     -store  localstorage.setItem()
     -access localStorage.getItem()
     -delete localStorage.removeItem()
 
     Parent Child Components communication in Angular
     -------------------------------------------------
+    @Input - Parent to Child Data sharing
+    @Output - Child to Parent Data sharing
+    
+    Datas only share via selector of component
 
-
-
+    User Defined Event creation in Angular
+    ---------------------------------------
+    EventEmitter (From Angular core) - Class used to craete events
+    emit()                           - To start the event
 
 
     Date in Angular
@@ -97,5 +103,50 @@ Form validation in Angular
     Date   -class
 
     -Create an object of class Date to access Date and Time
+
+    Angular Pipe
+    ------------
+    To transform  datas into another format
+    Eg:- Date pipe
+
+Extra
+------
+-When clone an angular project from git the node modules will automatically get ignored
+To take this folder use "npm i" in terminal
+
+CLIENT SERVER INTEGRATION
+--------------------------
+--------------------------
+
+http request Creation
+----------------------
+
+HttpClientModule  - Module
+HttpClient        - Class
+
+Asynchrnous request in Ts
+-------------------------
+Js- Promise  -- resolve     then()
+             -- reject      catch()
+
+Ts- Observable -- resolve   subscribe()
+               -- reject    catch()
+
+    Rxjs - Library used to solve asynchronous code in Ts
+
+    (Reactive Extension for JS)
+
+Append token in headers of http
+-------------------------------
+
+-Create header
+
+    HttpHeaders  - class to create header object
+
+    let headers=new HttpHeaders()
+
+-Append token in header object
+
+      headers.append('access-token',token)
 
 

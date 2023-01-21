@@ -10,7 +10,7 @@ import { DataService } from '../services/data.service';
 })
 export class DashboardComponent {
 
-  dateandtime:any
+  dateandtime: any
 
   // acno=''
   // psw=''
@@ -21,14 +21,16 @@ export class DashboardComponent {
   // amnt1=''
 
 
-  acno:any
+  acno: any
 
   user = ''
 
   constructor(private ds: DataService, private fb: FormBuilder, private router: Router) {
-    this.dateandtime=new Date()
+    this.dateandtime = new Date()
     // Access Username
-    this.user = this.ds.currentuser
+    if(localStorage.getItem('currentuser')){
+      this.user = JSON.parse(localStorage.getItem('currentuser') || '')
+    }
   }
 
   depositForm = this.fb.group({
@@ -44,7 +46,7 @@ export class DashboardComponent {
   })
 
   ngOnInit(): void {
-    if (!localStorage.getItem('currentacno')) {
+    if (!localStorage.getItem('token')) {
       alert('Please Login First')
       this.router.navigateByUrl('')
     }
@@ -56,14 +58,12 @@ export class DashboardComponent {
     var amnt = this.depositForm.value.amnt
 
     if (this.depositForm.valid) {
-      const result = this.ds.deposit(acno, psw, amnt)
-
-      if (result) {
-        alert(`${amnt} is credited to your Account and the balance is ${result}`)
-      }
-      else {
-        alert('Incorrect Account number/Password')
-      }
+      this.ds.deposit(acno, psw, amnt).subscribe((result: any) => {
+        alert(`${amnt} is credited to your Account and the balance is ${result.message}`)
+      },
+        result => {
+          alert(result.error.message)
+        })
 
     }
     else {
@@ -78,11 +78,12 @@ export class DashboardComponent {
     var amnt1 = this.withdrawForm.value.amnt1
 
     if (this.withdrawForm.valid) {
-      const result = this.ds.withdraw(acno1, psw1, amnt1)
-      if (result) {
-        alert(`${amnt1} is debited and the balance is ${result}`)
-      }
-
+      this.ds.withdraw(acno1, psw1, amnt1).subscribe((result: any) => {
+        alert(`${amnt1} is debited and the balance is ${result.message}`)
+      },
+        result => {
+          alert(result.error.message)
+        })
     }
     else {
       alert('Invalid Withdraw')
@@ -94,12 +95,30 @@ export class DashboardComponent {
   logout() {
     localStorage.removeItem('currentuser')
     localStorage.removeItem('currentacno')
+    localStorage.removeItem('token')
     this.router.navigateByUrl('')
   }
 
-  deleteconfirm(){
-    this.acno=JSON.parse(localStorage.getItem('currentacno')||"")
+  deleteconfirm() {
+    this.acno = JSON.parse(localStorage.getItem('currentacno') || "")
 
+  }
+
+  oncancel() {
+    this.acno = ""
+  }
+
+  delete(event:any){
+
+    this.ds.deleteacc(event).subscribe((result:any)=>{
+      alert(result.message)
+      this.logout()
+    },
+    result=>{
+      alert(result.error.message)
+    })
+
+    // alert(event)
   }
 
 }

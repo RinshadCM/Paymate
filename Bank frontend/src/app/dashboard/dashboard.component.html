@@ -14,7 +14,7 @@
 <!-- <div class="container">
     <a routerLink="/transaction"><span>Previous transactions</span></a>
 </div> -->
-<app-deleteconfirm [item]="acno"></app-deleteconfirm>
+<app-deleteconfirm [item]="acno" (onDelete)="delete($event)" (onCancel)="oncancel()"></app-deleteconfirm>
 
 <div class="container-fluid" [ngClass]="acno?'style':''">
 	<div class="row d-flex justify-content-center">
@@ -26,7 +26,6 @@
 						<p class="text-warning mb-2">Account Number</p>
 						<input formControlName="acno" type="number" name="acno" placeholder="1234 5678 9012 3457"
 							size="17" id="acn" minlength="19" maxlength="19">
-						<!-- <img src="../../assets/deposit.png" width="104px" height="100px" /> -->
 						<div *ngIf="this.depositForm.get('acno')?.errors && this.depositForm.get('acno')?.touched">
 							<p class="text-danger">Invalid Account Number</p>
 						</div>
