@@ -63,3 +63,7 @@ body {
     background-color: #f50057;
     border-color: #f50057
 }
+.image{
+    border-radius: 5%;
+    margin-bottom: 4rem
+}

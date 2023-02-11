@@ -3,10 +3,10 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../src/assets/bg-new.jpg);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../src/assets/bg2.jpg);
     background-size: cover;
     /* background-position: center; */
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif
     /* background-repeat: no-repeat; */
     /* margin-top: 22%; */
     
